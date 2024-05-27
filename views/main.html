@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUACK</title>
+    <link rel="icon" href="../images/icons/favi/icons8-오리-16.png">
+    <style>
+        /*전체적인 스타일*/
+        * {
+            margin: 0;
+            padding: 0;
+            /* color: #0D0D0D; */
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFF9DC;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            background-color: #FFCD89;
+            padding: 30px 0;
+
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        li {
+            margin: 0 20px;
+        }
+
+        a {
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            border-radius: 10px;
+            margin: 50px 100px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: #FFCD89;
+        }
+
+        /*nav css 애니메이션*/
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+
+        /*logo*/
+        #logo-container {
+            margin: 0px 100px;
+        }
+
+        /*section*/
+        #main-section {
+            padding: 50px 50px;
+            background-color: #FFCD89;
+        }
+
+        #main-section p {
+            line-height: 50px;
+            animation: fadeInUp 1s;
+        }
+
+        #money-section {
+            padding: 100px;
+            /* background-color: rgb(247, 224, 198); */
+
+        }
+
+        #money-box {
+            text-align: center;
+        }
+
+        #count-box {
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            width: min-content;
+
+            font-size: 100px;
+            padding: 0 10px;
+            margin: 30px auto;
+        }
+
+        #comic-section {
+            text-align: center;
+            padding: 50px;
+        }
+
+        #comic-4cut {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            /* Optional: Adds space between grid items */
+            /* width: 50%; */
+            /* Adjust as needed */
+            /* height: 50%; */
+            /* Adjust as needed */
+            grid-auto-flow: row;
+            background: #fff;
+            padding: 20px;
+
+        }
+
+        .comic-box {
+            /* padding: 10px; */
+            border: 1px solid #ccc;
+        }
+
+        .comic-box img {
+            width: 300px;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        #comic-title {
+            padding-bottom: 20px;
+        }
+
+        nav {
+            animation: fadeInUp 1s;
+        }
+
+
+        #write-section {
+            padding: 50px;
+        }
+
+        #write-box {}
+
+        #item-section {
+
+            padding: 30px;
+        }
+
+        #item-section h1 {
+            font-size: 30px;
+        }
+
+        #item-section #item-box {
+            margin: 30px 0px;
+            display: flex;
+            overflow-x: scroll;
+        }
+
+        #item-section .item {
+            margin: 0px 10px;
+        }
+
+        #item-section .item img {
+            border-radius: 10px;
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /*하이퍼링크 hover*/
+        a:hover {
+            border-radius: 10px;
+            background-color: #FFF9DC;
+        }
+
+        .item-text {
+            border-radius: 10px;
+            padding: 5px 15px;
+            background-color: #FFF9DC;
+        }
+
+        /*햄버거 메뉴*/
+        #menu {
+            visibility: hidden;
+        }
+
+        footer {
+            padding: 50px;
+            background-color: #FFCD89;
+        }
+
+
+
+
+        #money-title {
+            margin: 20px 0;
+        }
+
+        /* #count {
+            transition-delay: 50ms;
+        } */
+
+        /*타블렛*/
+        /*스펠링 조심 아니 이거 오타 표시 안됨?
+        이거 vs code 흠...*/
+        @media screen and (max-width: 1024px) {
+
+            /* body {
+                background-color: aqua;
+            } */
+            #count-box {
+
+                font-size: 50px;
+
+            }
+
+            .comic-box img {
+                width: 200px;
+                height: 150px;
+                object-fit: cover;
+            }
+
+            nav {
+                visibility: hidden;
+            }
+
+            #menu {
+                visibility: visible;
+            }
+
+            #item-section .item img {
+                width: 150px;
+                height: 300px;
+            }
+        }
+
+
+
+        /*모바일*/
+        /* @media screen and (max-width:767px) {} */
+    </style>
+    <script src="https://kit.fontawesome.com/e9d4ddcf7a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <!--header-->
+        <header>
+            <div id="logo-container">
+                <img src="" alt="">
+                <span id="logo">QUACK</span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="">ABOUT</a> </li>
+                    <li><a href="./shopping.html">SHOP</a></li>
+                    <li><a href="">COMMUNITY</a></li>
+                    <li><i class="fa-solid fa-user"></i><a href="">로그인</a></li>
+                    <li><i class="fa-solid fa-cart-shopping"></i><a href="">장바구니</a></li>
+                    <li id="menu"><i class="fa-solid fa-bars"></i></li>
+                </ul>
+            </nav>
+
+            <!--햄버거 메뉴 시작-->
+            <div id="ham-container">
+                <div id="ham-menu"></div>
+            </div>
+        </header>
+        <!--기부금 표시 세션-->
+        <section id="money-section">
+            <div id="money-box">
+                <h2 id="money-title">누적 기부금</h2>
+                <div id="count-box">
+                    <span id="count">0</span>₩
+                </div>
+
+                <span>상품 구매 즉시 기부금 500원이 적립됩니다.<br>
+                    커뮤니티에 선행 인증시 1000원이 추가 적립됩니다</span>
+                <span>기부금은 행운이 필요한 불치병 환자 어쩌고 아이들에게 전달됩니다 .</span>
+            </div>
+        </section>
+        <!--문구 세션-->
+        <section id="main-section">
+            <p>
+                행운의 돌을 한번씩 만지고 행운을 쌓아보아요!
+                <br>
+                <span class="item-text">Stone Key Ling</span> & <span class="item-text">Stone Necklace</span>
+            </p>
+        </section>
+        <!--4컷 만화 세션-->
+        <section id="comic-section">
+            <h1 id="comic-title">행운의 돌 사용법 네컷만화</h1>
+            <div id="comic-4cut">
+                <div class="comic-box">
+                    <img src="../images/cuts/cut01.jpg" alt="">
+                </div>
+                <div class="comic-box">
+                    <img src="../images/cuts/cut02.jpg" alt="">
+                </div>
+                <div class="comic-box">
+                    <img src="../images/cuts/cut03.jpg" alt="">
+                </div>
+                <div class="comic-box">
+                    <img src="../images/cuts/cut04.jpg" alt="">
+                </div>
+            </div>
+
+        </section>
+        <section id="write-section">
+            <div>
+                <h1>선행 실천 인증 글</h1>
+                <div id="write-box">
+                    <div>
+                        <h3>할머니를 도와드렸습니다</h3>
+                        <p>오늘은 할머니를 도와드렸습니다.내일도 할머니를 도와드리겠습니다.
+                            모래도 할머니를 도와드리겠습니다.그때마다 만원을 기부해주세요안하면 집으로 찾아가겠습니다.</p>
+                    </div>
+                    <div>
+                        <span>1990-01-01</span>
+                        <span>추천 100</span>
+                        <span>기부확인</span>
+                    </div>
+                    <img src="../images/help/help1.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section id="write-section">
+            <div>
+                <h1>선행 실천 인증 글</h1>
+                <div id="write-box">
+                    <div>
+                        <h3>할머니를 도와드렸습니다</h3>
+                        <p>오늘은 할머니를 도와드렸습니다.내일도 할머니를 도와드리겠습니다.
+                            모래도 할머니를 도와드리겠습니다.그때마다 만원을 기부해주세요안하면 집으로 찾아가겠습니다.</p>
+                    </div>
+                    <div>
+                        <span>1990-01-01</span>
+                        <span>추천 100</span>
+                        <span>기부확인</span>
+                    </div>
+                    <img src="../images/help/help1.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="item-section">
+                <h1>행운의 돌 구매하러 가기 ></h1>
+                <div id="item-box">
+                    <div class="item">
+                        <img src="../images/items/item01.jpg" alt="" class="item-image">
+                    </div>
+                    <div class="item">
+                        <img src="../images/items/item02.jpg" alt="" class="item-image">
+
+                    </div>
+                    <div class="item">
+                        <img src="../images/items/item03.jpg" alt="" class="item-image">
+                    </div>
+                    <div class="item">
+                        <img src="../images/items/item04.jpg" alt="" class="item-image">
+                    </div>
+                    <div class="item">
+                        <img src="../images/items/item05.webp" alt="" class="item-image">
+                    </div>
+                    <div class="item">
+                        <img src="../images/items/item06.jpg" alt="" class="item-image">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            회사정보 <br>
+            사업자 등록번호 :000000 <br>
+            저작권 어쩌고 <br>
+            Contect 연락처, 근무시간 등은행정보 <br>
+            <br>
+            이용약관, 개인정보처리방침, 위치기반 서비스 약관 등 법적사항 <br>
+        </footer>
+    </div>
+</body>
+<script>
+    let countBox = document.querySelector('#count');
+    let count = 0;
+    let num = 1000000000;
+    //애니메이션 달력 넘어가는 거 처럼
+    let counting = setInterval(() => {
+        if (count >= num) {
+            count = num;
+            clearInterval(counting);
+        }
+        // else if (count > num - 100) {
+
+        //     count += 1;
+        // }
+        else {
+            count += 12345678;
+        }
+        countBox.innerHTML = new Intl.NumberFormat().format(count);
+    }, 20);
+</script>
+
+</html>
